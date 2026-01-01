@@ -13,7 +13,7 @@ then ran a loop that added or subtracted each index of the array iteratively ove
 checking if the output of each loop is divisible by 100 with a remainder of 0.
 
 Part 2
-For this, it's very similar, but instead of iterating on each sum AFTER the dial has been turned a specified amount, we will check EACH integer between the oldsum and newsum 
-for each rotation. I learned to do this in Bash without external commands like seq; it's best to use C-like loop notation:
+For this, it's very similar, but instead of iterating on each sum AFTER the dial has been turned a specified amount, we will check EACH integer between
+the oldsum and newsum for each rotation. I learned to do this in Bash without external commands like seq; it's best to use C-like loop notation:
 for ((i=oldsum±1; i>or<oldsum; x±±))
 From there, it was easy; we just did the same thing by counting every time we crossed or ended at an integer divisible by 100 with a remainder of 0.
