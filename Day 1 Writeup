@@ -1,0 +1,10 @@
+When I first read this problem, I thought it would be quite difficult and require a ton of code and time to make. However, like back in high school/college, I re-read the problem and tried to break it down into the smallest mathematical parts possible.
+Recently, I was reading up on parity bits/ECC memory and its similarities with signed and unsigned integers, which gave me the idea to just think of this problem as a number line or 8-bit integer string that rolls over to negative or positive regardless of the input.
+The first thing I noticed is that all that this problem is really asking for as an answer is the number of times the sum of all previous dial turns, divided by 100 with a remainder of 0, is found iteratively across each input. For me, who is not quite an expert in Bash, that is the easy part. The hard part from here is making a simple program that solves for this relatively easy math problem.
+Now that I've taken this long and seemingly complex problem and made it as small as possible mathematically, I needed to balloon it back up into individual parts of code.
+The first thing I needed to do was make the input data Bashful (easy for Bash to interpret). Thankfully, this was mostly done since each input lived on its own line and uniformly consisted of a direction (R or L) and an integer. Replacing R with + and L with - was easy with tr, and I just plugged in every line/input into an array, then ran a loop that added or subtracted each index of the array iteratively over the entire array, checking if the output of each loop is divisible by 100 with a remainder of 0.
+
+Part 2
+For this, it's very similar, but instead of iterating on each sum AFTER the dial has been turned a specified amount, we will check EACH integer between the oldsum and newsum for each rotation. I learned to do this in Bash without external commands like seq; it's best to use C-like loop notation:
+for ((i=oldsum±1; i>or<oldsum; x±±))
+From there, it was easy; we just did the same thing by counting every time we crossed or ended at an integer divisible by 100 with a remainder of 0.
